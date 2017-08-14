@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <!-- 简单的百度地图 -->
     <baidu-map class='bm-view' :scroll-wheel-zoom='true' @ready='handler'>
     </baidu-map>
   </div>
@@ -10,14 +11,19 @@ import Vue from 'vue'
 import BaiduMap from 'vue-baidu-map'
 import *as mapv from 'mapv'
 import axios from 'axios'
+
+// 引入百度地图并传入ak密匙
 Vue.use(BaiduMap, {
   ak: '1XjLLEhZhQNUzd93EjU5nOGQ'
 })
 export default {
+  // 留空 计划存放百度地图类
   BmapObject: {},
+  // 留空 计划存放地图实例对象
   mapObj: {},
   data() {
     return {
+      // 数据点的数据
       largeList: [
         [
           87.88153173,
@@ -54,12 +60,16 @@ export default {
     }
   },
   methods: {
+    // 地图加载就绪后执行
     handler({ Bmap, map }) {
+      // map是地图实例
       this.mapObj = map
+      // Bmap是地图类
       this.BmapObject = Bmap
 
-
+      // 大数据点取自data
       let largeList = this.largeList
+      // 数据临时数组
       let data = []
       for (var i = 0; i < largeList.length; i++) {
         data.push({
@@ -72,7 +82,9 @@ export default {
       /**
        * @todo  mapv.DataSet里面this.add 报错this问题?
        */
+      // 你懂的
       let dataSet = new mapv.DataSet(data)
+      // 配置
       let largePointOption = {
         fillStyle: 'rgba(200, 200, 0, 0.8)',
         bigData: 'Point',
@@ -81,7 +93,9 @@ export default {
         zoom: this.zoom,
         center: this.center
       }
+
       console.log(map)
+      // 到这就卡住了 
       let a = new mapv.baiduMapLayer(map, dataSet, largePointOption)
     }
   },

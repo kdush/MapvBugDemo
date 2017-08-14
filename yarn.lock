@@ -2437,7 +2437,7 @@ make-dir@^1.0.0:
   dependencies:
     pify "^2.3.0"
 
-mapv@^2.0.16:
+mapv@^2.0.12:
   version "2.0.16"
   resolved "http://registry.npm.taobao.org/mapv/download/mapv-2.0.16.tgz#d367986362c9257afa59dc8bb7fae0f1ce5de5a1"
 
