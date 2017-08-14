@@ -63,8 +63,8 @@ export default {
     // 地图加载就绪后执行
     handler({ BMap, map }) {
       // 打印BMap对象
-      console.log(BMap)
-      Window.BMap = BMap
+
+      console.log(window.BMap)
       // map是地图实例
       this.mapObj = map
       // Bmap是地图类
