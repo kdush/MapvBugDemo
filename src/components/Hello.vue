@@ -68,7 +68,7 @@ export default {
       // map是地图实例
       this.mapObj = map
       // Bmap是地图类
-      this.BmapObject = Bmap
+      this.BmapObject = BMap
 
       // 大数据点取自data
       let largeList = this.largeList
