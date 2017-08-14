@@ -61,7 +61,10 @@ export default {
   },
   methods: {
     // 地图加载就绪后执行
-    handler({ Bmap, map }) {
+    handler({ BMap, map }) {
+      // 打印BMap对象
+      console.log(BMap)
+      Window.BMap = BMap
       // map是地图实例
       this.mapObj = map
       // Bmap是地图类
@@ -88,19 +91,17 @@ export default {
       let largePointOption = {
         fillStyle: 'rgba(200, 200, 0, 0.8)',
         bigData: 'Point',
-        size: 0.7,
+        size: 10,
         draw: 'simple',
         zoom: this.zoom,
         center: this.center
       }
-
-      console.log(map)
-      // 到这就卡住了 
+      // 到这就卡住了
       let a = new mapv.baiduMapLayer(map, dataSet, largePointOption)
     }
   },
   mounted() {
-    console.log(mapv)
+
   },
 
 }
